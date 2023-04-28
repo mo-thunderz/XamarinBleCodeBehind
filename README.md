@@ -1,4 +1,4 @@
-# Xamarin Ble Explorer Client
+# Xamarin Ble Explorer (Client)
 This is a simple BLE Explorer for Xamarin, similar to the nRF app. It allows the user to select a BLE device, then shows all available services. Upon selection of a service it will show the available Characteristics. One can then read/write strings or register to Characteristics with "notify" enabled.
 
 Code is based on Jenx Bluetooth example:
