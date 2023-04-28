@@ -33,12 +33,14 @@ namespace Jenx.Bluetooth.UartOverGatt.Client
 
             try
             {
-                var _servicesList = await _connectedDevice.GetServicesAsync();           // Read in the Services available
+                var servicesListReadOnly = await _connectedDevice.GetServicesAsync();           // Read in the Services available
 
+                _servicesList.Clear();
                 var _servicesListStr = new List<String>();
-                for(int i = 0; i < _servicesList.Count; i++)                             // Cycle through the found interfaces
+                for(int i = 0; i < servicesListReadOnly.Count; i++)                             // Cycle through the found interfaces
                 {
-                    _servicesListStr.Add(_servicesList[i].Name);                         // Write the name of the services seperately to an array of strings that can be used to populate the list in the GUI
+                    _servicesList.Add(servicesListReadOnly[i]);                                 // Write to a list of service interfaces
+                    _servicesListStr.Add(servicesListReadOnly[i].Name);                         // Write the name of the services seperately to an array of strings that can be used to populate the list in the GUI
                 }
                 foundBleServs.ItemsSource = _servicesListStr;                                   // Write the found names to the list in the GUI
             }
