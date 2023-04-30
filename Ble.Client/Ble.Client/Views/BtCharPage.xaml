@@ -1,0 +1,49 @@
+﻿<!-- This page is the Bluetooth Characteristics Pages (BtCharPage).  
+     This page opens when the user has selected a Service from a particular BLE Device and sees an overview of the Characteristics of the selected service -->
+
+<ContentPage x:Class="Ble.Client.BtCharPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             Title="Characteristics"
+             Visual="Material"
+             mc:Ignorable="d">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical">
+            <!-- Display selected BLE Device and BLE Service -->
+            <Label Text="Selected Bluetooth Device"
+                   x:Name="bleDevice"/>
+            <Label Text="Selected BLE Service"
+                   x:Name="bleService"/>
+            <!-- Display list of available Characteristics -->
+            <Label Text="Characteristics"/>
+            <ListView x:Name="foundBleChars"
+                      ItemTapped="FoundBleChars_ItemTapped" />
+            <!-- Label to show details of selected Characteristic -->
+            <Label Text="No Characteristic selected"
+                   x:Name="bleChar"/>
+            <!-- Scrollview to show BLE communication -->
+            <ScrollView VerticalOptions="EndAndExpand">
+                <Label x:Name="Output"
+                       TextColor="DarkBlue"
+                       VerticalOptions="EndAndExpand" />
+            </ScrollView>
+            <!-- Label to show error messages -->
+            <Label Text=""
+                   TextColor="DarkRed"
+                   x:Name="ErrorLabel"/>
+            <!-- Entry textfield to insert Strings to send to Characteristics -->
+            <Entry x:Name="CommandTxt"
+                   Text="ATZ" />
+            <!-- Buttons to send/receive/register to Characteristics -->
+            <StackLayout Margin="0,0,0,0">
+                <StackLayout Orientation="Horizontal" x:Name="ScanButton">
+                    <Button Text="Receive" Clicked="ReceiveCommandButton_Clicked"/>
+                    <Button Text="Send" Clicked="SendCommandButton_Clicked"/>
+                    <Button Text="Register" Clicked="RegisterCommandButton_Clicked"/>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

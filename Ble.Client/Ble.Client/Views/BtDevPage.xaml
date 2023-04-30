@@ -1,0 +1,32 @@
+﻿<!-- This page is the Bluetooth Devices Pages (BtDevPage). 
+     This is the opening page where the user can select a BLE Device -->
+    
+<ContentPage x:Class="Ble.Client.BtDevPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             Title="Scan for BLE devices"
+             Visual="Material"
+             mc:Ignorable="d">
+    <Grid>
+
+        <StackLayout Orientation="Vertical">
+            <!-- ScanButton is the button that can be clicked to refresh the BLE Devices in the list
+                 ScanButton_Clicked is the function that is run when the button is clicked -->
+            <Button x:Name="ScanButton"
+                    Margin="10"
+                    Clicked="ScanButton_Clicked"
+                    Text="Scan" />
+            <!-- ListView is the list that will be filled with the BLE Devices detected
+                 FoundBluetoothDevicesListView_ItemTapped is the function that is called when a device is selected -->
+            <ListView x:Name="foundBleDevicesListView"
+                      Footer=""
+                      ItemTapped="FoundBluetoothDevicesListView_ItemTapped" />
+        </StackLayout>
+        <!-- the "IsBusyIndicator" is the circle that you see when the scan button is clicked and the device is searching
+             for Bluetooth devices -->
+        <ActivityIndicator x:Name="IsBusyIndicator"
+                           Scale="0.3" />
+    </Grid>
+</ContentPage>

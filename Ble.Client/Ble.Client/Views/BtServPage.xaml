@@ -1,0 +1,23 @@
+﻿<!-- This page is the Bluetooth Services Pages (BtServPage). 
+     This page opens when the user has selected a BLE Device and sees an overview of the Services of that BLE Device -->
+
+<ContentPage x:Class="Ble.Client.BtServPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             Title="BLE Services"
+             Visual="Material"
+             mc:Ignorable="d">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical">
+            <!-- Display selected BLE Device -->
+            <Label Text="Selected BLE Device"
+                   x:Name="bleDevice"/>
+            <Label Text="Services"/>
+            <!-- The list below shows the services available on the selected BLE device -->
+            <ListView x:Name="foundBleServs"
+                      ItemTapped="FoundBleServs_ItemTapped" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
